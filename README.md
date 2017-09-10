@@ -1,4 +1,4 @@
-# Gulp Demo
+# Gulp Demo Project
 
 ## Use the packages
 
