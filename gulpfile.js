@@ -99,12 +99,17 @@ gulp.task('image-min', () =>
     .pipe(gulp.dest('./public/images'))
 );
 
+gulp.task('deploy', function() {
+  return gulp.src('./public/**/*')
+    .pipe($.ghPages());
+});
+
 gulp.task('watch', function () {
   gulp.watch('./source/scss/**/*.scss', ['sass']);
   gulp.watch('./source/**/*.jade', ['jade']);
   gulp.watch('./source/**/*.js', ['babel']);
 });
 
-gulp.task('build', gulpSequence('clean', 'jade', 'sass', 'babel', 'vendorJs', 'image-min'));
+gulp.task('build', gulpSequence('clean', 'jade', 'sass', 'babel', 'vendorJs', 'image-min', 'deploy'));
 
 gulp.task('default', ['jade', 'sass', 'babel', 'vendorJs', 'image-min', 'browser-sync', 'watch']);
