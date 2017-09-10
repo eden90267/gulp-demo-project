@@ -112,3 +112,4 @@ fabric.properties
 
 # Customize ignore file by myself
 public
+.tmp
