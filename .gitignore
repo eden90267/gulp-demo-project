@@ -110,6 +110,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# Customize ignore file by myself
 public
-
-bower_components
