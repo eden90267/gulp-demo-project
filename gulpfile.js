@@ -16,7 +16,7 @@ var options = minimist(process.argv.slice(2), envOptions);
 console.log(options);
 
 gulp.task('clean', function () {
-  return gulp.src(['./.tmp', './public'], {read: false})
+  return gulp.src(['./.tmp', './public', './.public'], {read: false})
     .pipe($.clean());
 });
 
@@ -110,6 +110,6 @@ gulp.task('watch', function () {
   gulp.watch('./source/**/*.js', ['babel']);
 });
 
-gulp.task('build', gulpSequence('clean', 'jade', 'sass', 'babel', 'vendorJs', 'image-min', 'deploy'));
+gulp.task('build', gulpSequence('clean', 'jade', 'sass', 'babel', 'vendorJs', 'image-min'));
 
 gulp.task('default', ['jade', 'sass', 'babel', 'vendorJs', 'image-min', 'browser-sync', 'watch']);

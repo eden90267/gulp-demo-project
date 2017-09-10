@@ -1,4 +1,4 @@
-# Gulp demo
+# Gulp Demo
 
 ## Use the packages
 
@@ -21,14 +21,20 @@ npm install
 
 ## Usage
 
-### for develop
+### For develop
 
 ```sh
-gulp
+npm start
 ```
 
-### for production
+### For production
 
 ```sh
-gulp build --env=production
+npm run build
+```
+
+### Deploy to GitPages
+
+```sh
+npm run deploy
 ```
