@@ -1,19 +1,34 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Document
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css")
-  body
-    h1
-      span Content
-      | Another content
-    ul
-      li
-        a(href="#") link
-      li
-        a(href="#") link
-      li
-        a(href="#") link
+extend layout
+
+block navbar
+  include partials/navbar
+
+block content
+  h1 #{menu.list[1].name}
+
+  hr
+
+  h1
+    span Content
+    | Another content
+
+  br
+  | content
+  ul
+    li
+      a(href="#") link
+    li
+      a(href="#") link
+    li
+      a(href="#") link
+  h1: a(href="#"): span 連結
+
+  h1
+    a(href="#")
+      span 連結
+  hr
+
+  .container
+    form(action="")
+      label(for="email") 請輸入 Email
+      input#email.form-control.input-sm(type="text")

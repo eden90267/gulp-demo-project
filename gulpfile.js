@@ -28,6 +28,17 @@ gulp.task('copyHTML', function () {
 gulp.task('jade', function () {
   gulp.src('./source/**/*.jade')
     .pipe($.plumber())
+    .pipe($.data(function (file) {
+      var khData = require('./source/data/data.json');
+      var menu = require('./source/data/menu.json');
+
+      var source = {
+        'khData': khData,
+        'menu': menu
+      };
+      console.log('jade', source);
+      return source;
+    }))
     .pipe($.jade({
       pretty: true
     }))
@@ -69,7 +80,7 @@ gulp.task('babel', function () {
   }
 );
 
-gulp.task('bower', function() {
+gulp.task('bower', function () {
   return gulp.src(mainBowerFiles())
     .pipe(gulp.dest('./.tmp/vendors'))
 });
@@ -78,6 +89,7 @@ gulp.task('vendorJs', ['bower'], function () { // 優先執行bower的排程
   return gulp.src('./.tmp/vendors/**/*.js')
     .pipe($.order([
       'jquery.js',
+      'tether.js',
       'bootstrap.js'
     ]))
     .pipe($.concat('venders.js'))
@@ -85,7 +97,7 @@ gulp.task('vendorJs', ['bower'], function () { // 優先執行bower的排程
     .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
   browserSync.init({
     server: {
       baseDir: "./public"
@@ -99,7 +111,7 @@ gulp.task('image-min', () =>
     .pipe(gulp.dest('./public/images'))
 );
 
-gulp.task('deploy', function() {
+gulp.task('deploy', function () {
   return gulp.src('./public/**/*')
     .pipe($.ghPages());
 });

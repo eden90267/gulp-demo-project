@@ -1,0 +1,12 @@
+{
+  "list": [
+    {
+      "name": "首頁",
+      "url": "index.html"
+    },
+    {
+      "name": "文件列表",
+      "url": "list.html"
+    }
+  ]
+}
