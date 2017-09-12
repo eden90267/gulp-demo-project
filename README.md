@@ -15,6 +15,7 @@
 ## Installation
 
 ```sh
+npm install gulp -g
 bower install
 npm install
 ```
