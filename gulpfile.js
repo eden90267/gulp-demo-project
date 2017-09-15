@@ -25,8 +25,8 @@ gulp.task('copyHTML', function () {
     .pipe(gulp.dest('./public/'))
 });
 
-gulp.task('jade', function () {
-  gulp.src('./source/**/*.jade')
+gulp.task('pug', function () {
+  gulp.src('./source/**/*.pug')
     .pipe($.plumber())
     .pipe($.data(function (file) {
       var khData = require('./source/data/data.json');
@@ -36,10 +36,10 @@ gulp.task('jade', function () {
         'khData': khData,
         'menu': menu
       };
-      console.log('jade', source);
+      console.log('pug', source);
       return source;
     }))
-    .pipe($.jade({
+    .pipe($.pug({
       pretty: true
     }))
     .pipe(gulp.dest('./public/'))
@@ -118,10 +118,10 @@ gulp.task('deploy', function () {
 
 gulp.task('watch', function () {
   gulp.watch('./source/scss/**/*.scss', ['sass']);
-  gulp.watch('./source/**/*.jade', ['jade']);
+  gulp.watch('./source/**/*.pug', ['pug']);
   gulp.watch('./source/**/*.js', ['babel']);
 });
 
-gulp.task('build', gulpSequence('clean', 'jade', 'sass', 'babel', 'vendorJs', 'image-min'));
+gulp.task('build', gulpSequence('clean', 'pug', 'sass', 'babel', 'vendorJs', 'image-min'));
 
-gulp.task('default', ['jade', 'sass', 'babel', 'vendorJs', 'image-min', 'browser-sync', 'watch']);
+gulp.task('default', ['pug', 'sass', 'babel', 'vendorJs', 'image-min', 'browser-sync', 'watch']);
