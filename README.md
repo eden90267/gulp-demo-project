@@ -2,7 +2,7 @@
 
 ## Use the packages
 
-- jade
+- pug
 - sass
 - postCss
 - autoprefixer
