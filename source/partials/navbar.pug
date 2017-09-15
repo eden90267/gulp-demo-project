@@ -1,11 +1,11 @@
 mixin link(url, name)
   if (path === url)
     li.nav-item.active
-      a.nav-link(href='#{url}')
+      a.nav-link(href=url)
         | #{name}
   else
     li.nav-item
-      a.nav-link(href='#{url}')
+      a.nav-link(href=url)
         | #{name}
 
 nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
