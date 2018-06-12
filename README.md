@@ -1,4 +1,4 @@
-# Gulp Demo Project
+# Static Web Page Starter
 
 ## Use the packages
 
