@@ -1,4 +1,4 @@
-# Static Web Page Starter
+# static-web-page-starter
 
 ## Use the packages
 
